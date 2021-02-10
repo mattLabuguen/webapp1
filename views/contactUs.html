@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper purple darken-4">
+            <a href="/" class="brand-logo ">Logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </div>
+      </nav>
+
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+
+      <div class="container">
+        <div class="row">
+            <h3>Contact Us</h3>
+        </div>
+        <div class="row"><p>E. Jacinto Street<br/>Davao City<br/>Philippines</p></div>
+        <div class="row"><b>We would love to hear from you! Message us to let us know by filling up the form down below.</b></div>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Fullname" id="full_name" type="text" class="validate">
+                        <label for="full_name">Full Name</label>
+                        <span class="helper-text" data-error="" data-success=""></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Email" id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                        <span class="helper-text" data-error="" data-success=""></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Message" id="message" type="text" class="validate">
+                        <label for="message">Message</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 offset-s11">
+                        <button class="btn waves-effect waves-light purple darken-4" type="button" name="">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+      
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+      });
+</script>
+</html>
