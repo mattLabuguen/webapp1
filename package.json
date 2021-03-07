@@ -1,0 +1,26 @@
+{
+  "name": "pa3",
+  "version": "1.0.0",
+  "description": "Preparatory Assesment #3",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattLabuguen/webapp1.git"
+  },
+  "keywords": [
+    "node-app"
+  ],
+  "author": "Rene Matthew Labuguen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattLabuguen/webapp1/issues"
+  },
+  "homepage": "https://github.com/mattLabuguen/webapp1#readme"
+}
