@@ -23,7 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res){
   setData().then(result =>{
     res.render('index', {pageTitle: 'Home', wData: weatherData, cData: countryData, dayNow : currentDay});
-  }).catch(err => console.log("ERROR: " + err));
+  }).catch(err => {
+    console.log("ERROR: " + err);
+    res.redirect('/');
+  });
 })
 
 app.get('/other', function (req, res) {
