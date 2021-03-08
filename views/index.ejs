@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/header') %> 
+    <head>
+        <%- include('./partials/header') %> 
+        <style>
+            .imghover{
+                height: 64px;
+                background: url("https://www.countryflags.io/<%=cData[0].alpha2Code%>/flat/64.png") no-repeat;
+                background-position: center;
+            }
+            .imghover:hover{
+                background: url("https://www.countryflags.io/<%=cData[0].alpha2Code%>/shiny/64.png") no-repeat;
+                background-position: center;
+            }
+        </style>
+    </head>
     <body>
         <%- include('./partials/navbar') %>    
         <div class="container-fluid w-75 mt-5 mb-1">
             <div class="row justify-content center">
                 <div class="col-12">
-                    <span class="text-success"><b>Resetting the server will randomize the location</b>.</span>
+                    <span class="text-success"><b>Reloading the page will randomize the location</b>.</span>
                 </div>
             </div>
         </div>

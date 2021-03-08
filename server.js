@@ -5,7 +5,7 @@ const { response } = require('express');
 const fetch = require('node-fetch');
 const path = require('path');
 const randomCountryName = require("random-country-name");
-const { random } = require('random-country-name');
+
 const { get } = require('http');
 const util = require('util');
 
@@ -23,16 +23,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req, res){
   setData().then(result =>{
     res.render('index', {pageTitle: 'Home', wData: weatherData, cData: countryData, dayNow : currentDay});
-  }).catch(err => console.log(err));
+  }).catch(err => console.log("ERROR: " + err));
 })
 
 app.get('/other', function (req, res) {
-  setData().then(result =>{
-    res.render('other', {pageTitle: 'Other', code: countryCode});
-  }).catch(err => console.log(err));
+    res.render('other', {pageTitle: 'Other'});
 })
 
 async function setData(){
+  randomCountry = await randomCountryName.random();
+  urlRestCountries = 'https://restcountries.eu/rest/v2/name/'+randomCountry;
   countryData = await fetchCountryData();
 }
 
@@ -59,6 +59,4 @@ function getCurrentDay(){
   return weekdays[currentDay];
 }
 
-
- 
-app.listen(3000)
+app.listen(3000);
