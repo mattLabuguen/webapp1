@@ -2,16 +2,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= pageTitle%></title>
+    <title><%=pageTitle%></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         .imghover{
             height: 64px;
-            background: url("https://www.countryflags.io/<%=code%>/flat/64.png") no-repeat;
+            background: url("https://www.countryflags.io/<%=cData[0].alpha2Code%>/flat/64.png") no-repeat;
             background-position: center;
         }
         .imghover:hover{
-            background: url("https://www.countryflags.io/<%=code%>/shiny/64.png") no-repeat;
+            background: url("https://www.countryflags.io/<%=cData[0].alpha2Code%>/shiny/64.png") no-repeat;
             background-position: center;
         }
     </style>

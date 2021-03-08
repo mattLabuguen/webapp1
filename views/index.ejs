@@ -3,18 +3,25 @@
     <%- include('./partials/header') %> 
     <body>
         <%- include('./partials/navbar') %>    
-        <div class="container-fluid w-75 mt-5 p-5 mb-3 bg-light bg-gradient">
+        <div class="container-fluid w-75 mt-5 mb-1">
+            <div class="row justify-content center">
+                <div class="col-12">
+                    <span class="text-success"><b>Resetting the server will randomize the location</b>.</span>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid w-75 p-5 mb-3 bg-light bg-gradient">
+            
             <div class="row justify-content-start mb-3">
                 <div class="col-1 align-self-center imghover">
-                    <!-- <img src="https://www.countryflags.io/<%= code %>/flat/64.png"> -->
                 </div>
-                <div class="col-7 align-self-center">
-                    <h3> <%= data[0].location["name"] %> </h3>
-                    <h5> Latitude: <%= data[0].location["lat"] %>° Longitude: <%= data[0].location["long"] %>°</h5>
+                <div class="col-11 align-self-center">
+                    <h3> <%= wData[0].location["name"] %>: <span class="text-danger"><%=cData[0].alpha2Code%></span></h3>
+                    <h5> Latitude: <%= wData[0].location["lat"] %>° Longitude: <%= wData[0].location["long"] %>°</h5>
                 </div>
             </div>
             <div class="row justify-content-center mt-5">
-                <% for(weather of data[0].forecast) {%>
+                <% for(weather of wData[0].forecast) {%>
                     <div class="col align-self-center text-center">
                         <h5>
                             <% if (weather["day"] == dayNow) { %>

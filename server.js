@@ -4,41 +4,51 @@ const weather = require('weather-js');
 const { response } = require('express');
 const fetch = require('node-fetch');
 const path = require('path');
+const randomCountryName = require("random-country-name");
+const { random } = require('random-country-name');
+const { get } = require('http');
+const util = require('util');
 
-var weatherData;
-var countryCode;
-var currentDay;
+const findWeather = util.promisify(weather.find);
 
-getWeatherData();
-currentDay = getCurrentDay();
+var weatherData = [];
+var countryData = [];
+var currentDay = getCurrentDay();
+var randomCountry = randomCountryName.random();
+var urlRestCountries = 'https://restcountries.eu/rest/v2/name/'+randomCountry;
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res){
-  res.render('index', {pageTitle: 'Home', data: weatherData, code: countryCode, dayNow : currentDay});
+  setData().then(result =>{
+    res.render('index', {pageTitle: 'Home', wData: weatherData, cData: countryData, dayNow : currentDay});
+  }).catch(err => console.log(err));
 })
 
 app.get('/other', function (req, res) {
-  res.render('other', {pageTitle: 'Other', code: countryCode});
+  setData().then(result =>{
+    res.render('other', {pageTitle: 'Other', code: countryCode});
+  }).catch(err => console.log(err));
 })
 
-async function getCountryCode(location){
-  var country = location.split(",")[1].trim();
-  var urlRestCountries = 'https://restcountries.eu/rest/v2/name/'+country;
-  var countryData;
-
-  await fetch(urlRestCountries).then(res => res.json()).then(data => {
-    countryCode = data[0].alpha2Code;
-  }).catch(err=> console.log("Error: " + err));
+async function setData(){
+  countryData = await fetchCountryData();
 }
 
-function getWeatherData(){
-  weather.find({search: 'Tokyo, Japan', degreeType: 'C'}, function(err, result) {
-    if(err) console.log(err);
-    weatherData = result;
-    getCountryCode(weatherData[0].location["name"]);
-  });
+async function fetchWeatherData(countryData){
+  var location = countryData[0].capital + ", " + randomCountry;
+  const data = await findWeather({ search: location, degreeType: 'C'});
+  weatherData = data;
+  return data;
+}
+
+async function fetchCountryData(){
+  const response = await fetch(urlRestCountries);
+  const data = await response.json();
+ 
+  await fetchWeatherData(data);
+  return data;
 }
 
 function getCurrentDay(){
@@ -48,5 +58,7 @@ function getCurrentDay(){
 
   return weekdays[currentDay];
 }
+
+
  
 app.listen(3000)
