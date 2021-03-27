@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-2 border-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-2 border-white">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="./assets/reigen.png" alt="" width="30" height="24"> RMNL</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,16 +6,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-lg-0">
-                <li class="nav-item">
-                    <% if (pageTitle == "Home") { %>
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    <% } else { %>
-                        <a class="nav-link" href="/">Home</a>
-                    <% } %> 
-                </li>
+                
             </ul>
             <span class="navbar-text">
-                <b>Contact Us</b> <i class="fas fa-phone-square-alt"></i>
+                <a href="/"><b>Contact Us</b> <i class="fas fa-phone-square-alt"></i></a>
             </span>
         </div>
     </div>

@@ -3,7 +3,7 @@ const app = express()
 const { response } = require('express');
 const fetch = require('node-fetch');
 const path = require('path');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');  
 
 const { get } = require('http');
 const util = require('util');
@@ -63,7 +63,7 @@ app.post('/new', function (req, res){
 
   setData(req.body["location"]).then(result =>{
     timeData = processTimeData(result);
-    //Refresh table
+  //Refresh table
     PersonData.find({timezone: req.body["location"]}).then(result =>{
       res.render('country', {pageTitle: "Timezone", data: timeData, city: req.body["location"], person: result});
     }).catch(error =>{
@@ -101,7 +101,7 @@ app.post('/back', function (req,res){
 
 function processTimeData(data){ 
   var timeOptions = {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: data["timezone"]};
-  var dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+  var dateOptions = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: data["timezone"]};
   
   var datetime = new Date(data["datetime"]);
   
