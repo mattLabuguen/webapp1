@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header') %> 
+</head>
+<body class="bg-dark text-white text-left h-100">
+    <%- include('./partials/navbar') %> 
+    <div class="container d-flex flex-column align-center">
+        <img class="mx-auto mb-5 mt-5" src="../assets/<%=person["timezone"]%>.png">
+        <div class="card text-dark bg-light mb-3 w-50 mx-auto border-primary">
+            <div class="card-header"><b>Person</b></div>    
+            <div class="card-body">
+                <form action="back" method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Person Name</span>
+                        <input type="text" class="form-control" value="<%=person["name"]%>" disabled >
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Nationality</span>
+                        <input type="text" class="form-control" value="<%=person["nationality"]%>" disabled >
+                    </div>
+                    <div class="input-group mb-3">      
+                        <span class="input-group-text">Birthdate</span>
+                        <input type="date" class="form-control" value="<%=person["birthdate"]%>" disabled >
+                    </div>
+                    <input hidden type="text" value="<%=person["timezone"]%>" name="location">
+                    <button class="btn btn-light"><b>Back</b></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+.imghover{
+    height: 64px;
+    background: url("https://www.countryflags.io/<%=cData[0].alpha2Code%>/flat/64.png") no-repeat;
+    background-position: center;
+}
+.imghover:hover{
+    background: url("https://www.countryflags.io/<%=cData[0].alpha2Code%>/shiny/64.png") no-repeat;
+    background-position: center;
+}
+
+#title{
+    font-size: 24rem;
+    font-family: 'Oswald', sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
+}
+
+#selectText{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+}
+
+#selectOption{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+#date{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+#time{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#flag{
+    display: block;
+    max-width:400px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+}
+
+#country{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.text-pop-up-top:hover{animation:text-pop-up-top .5s cubic-bezier(.25,.46,.45,.94) both}
+
+@keyframes text-pop-up-top{0%{transform:translateY(0);transform-origin:50% 50%;text-shadow:none}100%{transform:translateY(-10px);transform-origin:50% 50%;text-shadow:0 1px 0 #000,0 2px 0 #000,0 3px 0 #000,0 4px 0 #000,0 5px 0 #000,0 6px 0 #000,0 7px 0 #000,0 8px 0 #000,0 9px 0 #000,0 50px 30px rgba(0,0,0,.3)}}
+  

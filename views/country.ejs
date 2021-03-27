@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/header') %> 
+    </head>
+    
+    <body class="bg-dark text-white text-left h-100">
+      <%- include('./partials/navbar') %> 
+        <div class="container-fluid w-75 d-flex flex-row pt-5">
+            <img id="flag" src="../assets/<%=city%>.png">
+            <div class="container-fluid w-75 d-flex flex-column">
+                <h2 id="date"><%=data[0]%></h1>
+                <h2 id="time"><%=data[1]%></h2>
+            </div>
+        </div>
+        <div class="container-fluid w-75 mt-5">
+            <div class="row pb-3">
+              <div class="col">
+                <form action="new_person" method="post">
+                  <input hidden type="text" value="<%=city%>" name="location">
+                  <button class="btn btn-success" type="submit"><b>Add Person </b><i class="fas fa-plus-circle"></i></button>
+                </form>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <table class="table table-dark table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Person Name</th>
+                      <th scope="col">Nationality</th>
+                      <th scope="col">Birthdate</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% var id = 1; %>
+                    <% for (p of person){ %>
+                      <tr>
+                        <th><%=id%></th>
+                        <th><%=p["name"]%></th>
+                        <th><%=p["nationality"]%></th>
+                        <th><%=p["birthdate"]%></th>
+                        <th>
+                          <center>
+                            <form action="view" method="POST">
+                              <input hidden type="text" value="<%=p["_id"]%>" name="id">
+                              <button class="btn btn-primary btn-small" type="submit">View</button>
+                            </form>
+                          </center>
+                        </th>
+                      </tr>
+                    <% id++; }%>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+           
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/4b0653bbeb.js" crossorigin="anonymous"></script>
+    </body>
+</html>

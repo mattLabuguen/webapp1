@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-2 border-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">RMNL</a>
+        <a class="navbar-brand" href="/"><img src="./assets/reigen.png" alt="" width="30" height="24"> RMNL</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto mb-lg-0">
                 <li class="nav-item">
                     <% if (pageTitle == "Home") { %>
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -13,14 +13,10 @@
                         <a class="nav-link" href="/">Home</a>
                     <% } %> 
                 </li>
-                <li class="nav-item">
-                    <% if (pageTitle == "Other") { %>
-                        <a class="nav-link active" aria-current="page" href="/other">Other</a>
-                    <% } else { %>
-                        <a class="nav-link" href="/other">Other</a>
-                    <% } %> 
-                </li>
             </ul>
+            <span class="navbar-text">
+                <b>Contact Us</b> <i class="fas fa-phone-square-alt"></i>
+            </span>
         </div>
     </div>
 </nav>
